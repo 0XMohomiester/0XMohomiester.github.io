@@ -1,7 +1,7 @@
 ---
 layout: "post"
+Date: "2024-03-24"
 title: "Thonk Machine Cybertalents"
-By: "0XMohomiester"
 ---
 
 We can start with nmap scan
