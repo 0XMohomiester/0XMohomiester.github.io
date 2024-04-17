@@ -76,7 +76,7 @@ theme_mode: # [light | dark]
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: ./1.jpeg
+avatar: https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/868c342e-05b0-4cee-91d2-ca60da79c4eass
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
