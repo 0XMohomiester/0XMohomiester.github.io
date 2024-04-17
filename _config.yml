@@ -73,10 +73,10 @@ theme_mode: # [light | dark]
 # will be added to all image (site avatar & posts' images) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn:
+img_cdn: https://github.com/0XMohomiester/0XMohomiester.github.io/
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/868c342e-05b0-4cee-91d2-ca60da79c4eass
+avatar: assets/47929033/868c342e-05b0-4cee-91d2-ca60da79c4eass
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
