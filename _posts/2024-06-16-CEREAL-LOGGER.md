@@ -8,7 +8,7 @@ tags: [CHALLENGES, CTF]
 
 Hi, in this writeup I will solve the new hard challenge `CEREAL LOGGER`, from [247ctf](https://247ctf.com/). I will also explain how I created a simple proxy server between `SQLmap` and the challenge server that can manipulate SQLmap requests.
 
-### - Challenge source code analysis
+## Challenge source code analysis
 ![IMG1](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/24a5b14d-3451-4ac3-a4e2-5855c6ce6cfb)
 
 1) class `insert_log` is defined and has a property `new_data` has constant value "Valid access logged!"
