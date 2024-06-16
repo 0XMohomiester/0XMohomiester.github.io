@@ -12,7 +12,7 @@ Hi, in this writeup I will solve the new hard challenge `CEREAL LOGGER`, from [2
 ![IMG1](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/24a5b14d-3451-4ac3-a4e2-5855c6ce6cfb)
 
 1) class `insert_log` is defined and has a property `new_data` has constant value "Valid access logged!"
-and has `__destruct()` methode that create a new SQLite3 database connection using a database file located at `/tmp/log.db` and finally, an SQL command is executed to insert a log message `$this->new_data` into the `log` table of the database.
+and has `__destruct()` methode that create a new SQLite3 database connection using a database file located at `/tmp/log.db` and finally, an SQL query is executed to insert a log message `$this->new_data` into the `log` table of the database.
 
 2) Main Script Logic: 
   - The code check if the cookie named `247` is set for incoming HTTP requests.
@@ -21,12 +21,18 @@ and has `__destruct()` methode that create a new SQLite3 database connection usi
 
 ## Spotting the bugs.
 
-
 - The condition `explode(".", $_COOKIE["247"])[1].rand(0, 247247247) == "0"` is vulnerable to [Type juggling](https://medium.com/swlh/php-type-juggling-vulnerabilities-3e28c4ed5c09) because it relies on PHP's type coercion, PHP uses loose comparison (==), which means it will attempt to coerce the types to make the comparison. For example, when comparing a string to a number, PHP will convert the string to a number.
 - In the `__destruct()` method vulnerable to SQLi, the SQL query is constructed by directly concatenating the `new_data` property into the SQL statement, but what is `__destruct()` methode ? by asking google: 
-![IMG2](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/3fff93f5-7be6-48c0-ad49-09670eac2244) - Keep this simple information in your mind.
-- The last part of the 
+![IMG2](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/3fff93f5-7be6-48c0-ad49-09670eac2244)
 
+- # Simple Testing: 
+![IMG3](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/65829906-6265-426b-b907-4662a6b1e523)
 
+At this point, we can identify another vulnerability: `insecure deserialization` because the script decode tha first part of the cookie before dot and then unserialize it directly using `unserialize()` function.
 
+## Chaning of bugs 
 
+1) Exoloiting type juggling vulnerability to bypass the if condition.
+3) build a class with same name and   
+3) 
+## Manuel Exploiting.
