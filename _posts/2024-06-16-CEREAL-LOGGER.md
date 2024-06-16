@@ -15,7 +15,7 @@ Hi, in this writeup I will solve the new hard challenge `CEREAL LOGGER`, from [2
 and has `__destruct()` methode that create a new SQLite3 database connection using a database file located at `/tmp/log.db` and finally, an SQL command is executed to insert a log message `$this->new_data` into the `log` table of the database.
 
 2) Main Script Logic: 
-  - Code check if the cookie named `247` is set for incoming HTTP requests.
+  - The code check if the cookie named `247` is set for incoming HTTP requests.
   - Split the cookie value at the dot with `explode(".", $_COOKIE["247"])` and Check if the second part of the split value concatenated with a random number between 0 and 247247247 equals the string "0".
   - If the condition is met, it decodes the first part of the cookie value from base64, unserializes it, and writes the result to `/dev/null` (which essentially discards the output).
 
@@ -24,7 +24,8 @@ and has `__destruct()` methode that create a new SQLite3 database connection usi
 
 - The condition `explode(".", $_COOKIE["247"])[1].rand(0, 247247247) == "0"` is vulnerable to [Type juggling](https://medium.com/swlh/php-type-juggling-vulnerabilities-3e28c4ed5c09) because it relies on PHP's type coercion, PHP uses loose comparison (==), which means it will attempt to coerce the types to make the comparison. For example, when comparing a string to a number, PHP will convert the string to a number.
 - In the `__destruct()` method vulnerable to SQLi, the SQL query is constructed by directly concatenating the `new_data` property into the SQL statement, but what is `__destruct()` methode ? by asking google: 
-![IMG2](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/3fff93f5-7be6-48c0-ad49-09670eac2244)
+![IMG2](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/3fff93f5-7be6-48c0-ad49-09670eac2244) - Keep this simple information in your mind.
+- The last part of the 
 
 
 
