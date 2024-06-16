@@ -15,5 +15,6 @@ Hi, in this writeup I will solve the new hard challenge `CEREAL LOGGER`, from [2
 and has `__destruct()` methode that create a new SQLite3 database connection using a database file located at `/tmp/log.db` and finally, an SQL command is executed to insert a log message `$this->new_data` into the `log` table of the database.
 
 2) Main Script Logic: 
-  - qwef
-  - wefwef 
+  - Code check if the cookie named `247` is set for incoming HTTP requests.
+  - Split the cookie value at the dot with `explode(".", $_COOKIE["247"])` and Check if the second part of the split value concatenated with a random number between 0 and 247247247 equals the string "0".
+  - If the condition is met, it decodes the first part of the cookie value from base64, unserializes it, and writes the result to /dev/null (which essentially discards the output).
