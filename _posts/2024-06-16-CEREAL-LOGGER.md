@@ -8,7 +8,7 @@ tags: [CHALLENGES, CTF]
 
 Hi, in this writeup I will solve the new hard challenge `CEREAL LOGGER`, from [247ctf](https://247ctf.com/). I will also explain how I created a simple proxy server between `SQLmap` and the challenge server that can manipulate SQLmap requests.
 
-## Challenge source code analysis
+## Challenge source code analysis.
 ![IMG1](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/24a5b14d-3451-4ac3-a4e2-5855c6ce6cfb)
 
 1) class `insert_log` is defined and has a property `new_data` has constant value "Valid access logged!"
@@ -17,4 +17,6 @@ and has `__destruct()` methode that create a new SQLite3 database connection usi
 2) Main Script Logic: 
   - Code check if the cookie named `247` is set for incoming HTTP requests.
   - Split the cookie value at the dot with `explode(".", $_COOKIE["247"])` and Check if the second part of the split value concatenated with a random number between 0 and 247247247 equals the string "0".
-  - If the condition is met, it decodes the first part of the cookie value from base64, unserializes it, and writes the result to /dev/null (which essentially discards the output).
+  - If the condition is met, it decodes the first part of the cookie value from base64, unserializes it, and writes the result to `/dev/null` (which essentially discards the output).
+
+## Spoting The bugs.
