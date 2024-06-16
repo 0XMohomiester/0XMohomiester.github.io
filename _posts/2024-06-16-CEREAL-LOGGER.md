@@ -6,4 +6,4 @@ tags: [CHALLENGES, CTF]
 ---
 
 
-jvgvjgvjgv
+Hi, in this writeup we will solve the new hard challenge `CEREAL LOGGER` from [247ctf](https://247ctf.com/)
