@@ -29,11 +29,12 @@ and has `__destruct()` methode that create a new SQLite3 database connection usi
 
 - At this point, we can identify another vulnerability: `insecure deserialization` because the script decode tha first part of the cookie before dot and then unserialize it directly using `unserialize()` function.
 
-### Chaning of bugs 
+## Chaning of bugs 
 
 1) Exoloiting type juggling vulnerability to bypass the if condition.
 
-2) Build a class with same name and properties (Attributes or Variables) and use serialize the created object from this class.  
+2) Build a class with same name and properties (Attributes or Variables). 
 
-3) Injecting SQL payload in `new_data` attribute in before serializing object and then encode it to base64 encoded data.
-### Manuel Exploiting.
+3) Injecting SQL payload in `new_data` attribute before serializing object and then encode it to base64 encoded data.
+
+## Manuel Exploiting.
