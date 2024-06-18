@@ -32,6 +32,8 @@ and has `__destruct()` methode that create a new SQLite3 database connection usi
 ### Chaning of bugs 
 
 1) Exoloiting type juggling vulnerability to bypass the if condition.
+
 2) Build a class with same name and properties (Attributes or Variables) and use serialize the created object from this class.  
+
 3) Injecting SQL payload in `new_data` attribute in before serializing object and then encode it to base64 encoded data.
 ### Manuel Exploiting.
