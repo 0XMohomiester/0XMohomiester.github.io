@@ -33,6 +33,6 @@ At this point, we can identify another vulnerability: `insecure deserialization`
 ## Chaning of bugs 
 
 1) Exoloiting type juggling vulnerability to bypass the if condition.
-3) build a class with same name and   
+2) build a class with same name and   
 3) 
 ## Manuel Exploiting.
