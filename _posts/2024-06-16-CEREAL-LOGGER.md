@@ -39,9 +39,9 @@ and has `__destruct()` methode that create a new SQLite3 database connection usi
 
 ## Manuel Exploiting.
 
-We can exploit the [Type Juggling](https://www.php.net/manual/en/language.types.type-juggling.php) vulnerability by injecting data before a dot and then embedding 0e after the dot. This allows us to bypass an if condition like `blablabla.0e`, For example, `"0e1234" == "0"` returns true because `0e1234` means `0 * 10^1234` which is zero, so whatever the random numbers come after e then the condition always returns true.  
+We can exploit the [Type Juggling](https://www.php.net/manual/en/language.types.type-juggling.php) vulnerability by injecting data before a dot and then embedding `0e` after the dot. This allows us to bypass an if condition like `blablabla.0e`, For example, `"0e1234" == "0"` returns true because `0e1234` means `0 * 10^1234` which is zero, so whatever the random number come after e then the condition always returns true.  
 
-In PHP, `0e1234` represents a number in scientific notation, where `0` is the coefficient and `e1234` indicates the exponent. However, because the coefficient is 0, the entire value is simply 0, regardless of the exponent, In scientific notation, the format is generally `n x 10^m`, where n is the coefficient and m is the exponent. In PHP, 0e1234 translates to `0 * 10^1234`, which is still 0.
+In PHP, `0e1234` represents a number in scientific notation, where `0` is the coefficient and `e1234` indicates the exponent. However, because the coefficient is 0, the entire value is simply 0, regardless of the exponent, In scientific notation, the format is generally `n x 10^m`, where n is the coefficient and m is the exponent. In PHP, `0e1234` translates to `0 * 10^1234`, which is still 0.
 
 ![IMG4](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/89f5c1eb-c699-4b4c-9b36-fdd59ad3c464)
 
@@ -52,16 +52,14 @@ Note: The SQLite `randomblob()` function returns a blob containing pseudo-random
 ![IMG5](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/997e9a8a-78c3-459f-907b-baa0425e02f1)
 
 
-Let's try it : 
+Let's try it :
 
-![IMG5](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/645e72aa-4228-4a34-be67-ec1b684e9ac3)
+![IMG6](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/645e72aa-4228-4a34-be67-ec1b684e9ac3)
 
-
-
-
+as you can see that the response takes about 1.7 seconds with 502 status code, because we generate long number of bytes in `randomblob()` function, let's try if we created a only one byte: `randomblob(1)` 
 
 
-
+![IMG7](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/3e431425-c0fe-40aa-9d6e-25c16f4a7b44)
 
 
 
