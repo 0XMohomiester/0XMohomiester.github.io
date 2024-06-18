@@ -45,6 +45,24 @@ In PHP, `0e1234` represents a number in scientific notation, where `0` is the co
 
 ![IMG4](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/89f5c1eb-c699-4b4c-9b36-fdd59ad3c464)
 
-Now we can create class and try to inject SQL payload like: `0XMohomiester'); select 1 = randomblob(999999999);`
+Now we can create class and try to inject SQL payload like: `0XMohomiester'); select 1 = randomblob(999999999);`.
+
+Note: The SQLite `randomblob()` function returns a blob containing pseudo-random bytes. The number of bytes is determined by its argument.
 
 ![IMG5](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/997e9a8a-78c3-459f-907b-baa0425e02f1)
+
+
+Let's try it : 
+
+![IMG5](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/645e72aa-4228-4a34-be67-ec1b684e9ac3)
+
+
+
+
+
+
+
+
+
+
+
