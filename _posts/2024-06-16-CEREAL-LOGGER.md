@@ -25,7 +25,7 @@ and has `__destruct()` methode that create a new SQLite3 database connection usi
 - In the `__destruct()` method vulnerable to SQLi, the SQL query is constructed by directly concatenating the `new_data` property into the SQL statement, but what is `__destruct()` methode ? by asking google: 
 ![IMG2](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/3fff93f5-7be6-48c0-ad49-09670eac2244)
 
-- # Simple Testing: 
+- Simple Testing: 
 ![IMG3](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/65829906-6265-426b-b907-4662a6b1e523)
 
 At this point, we can identify another vulnerability: `insecure deserialization` because the script decode tha first part of the cookie before dot and then unserialize it directly using `unserialize()` function.
