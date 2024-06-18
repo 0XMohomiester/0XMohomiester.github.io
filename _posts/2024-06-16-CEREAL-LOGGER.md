@@ -5,7 +5,6 @@ categories: [CHALLENGES, CEREAL LOGGER]
 tags: [CHALLENGES, CTF] 
 ---
 
-
 Hi, in this writeup I will solve the new hard challenge `CEREAL LOGGER`, from [247ctf](https://247ctf.com/). I will also explain how I created a simple proxy server between `SQLmap` and the challenge server that can manipulate SQLmap requests.
 
 ## Challenge source code analysis.
@@ -28,11 +27,11 @@ and has `__destruct()` methode that create a new SQLite3 database connection usi
 - Simple Testing: 
 ![IMG3](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/65829906-6265-426b-b907-4662a6b1e523)
 
-At this point, we can identify another vulnerability: `insecure deserialization` because the script decode tha first part of the cookie before dot and then unserialize it directly using `unserialize()` function.
+- At this point, we can identify another vulnerability: `insecure deserialization` because the script decode tha first part of the cookie before dot and then unserialize it directly using `unserialize()` function.
 
-## Chaning of bugs 
+### Chaning of bugs 
 
 1) Exoloiting type juggling vulnerability to bypass the if condition.
-2) build a class with same name and   
-3) 
-## Manuel Exploiting.
+2) Build a class with same name and properties (Attributes or Variables) and use serialize the created object from this class.  
+3) Injecting SQL payload in `new_data` attribute in before serializing object and then encode it to base64 encoded data.
+### Manuel Exploiting.
