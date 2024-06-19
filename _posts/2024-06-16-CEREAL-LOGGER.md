@@ -155,6 +155,6 @@ Yessss! it works, sqlmap extract table names and data inside this tables:
 ![IMG10](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/6e17f82d-80ff-463e-848a-885b6d671b40)
 
 
-Thanks for reading 
+Thanks for reading.
 
 Follow me on [Linkedin](https://www.linkedin.com/in/0xmohomiester/)
