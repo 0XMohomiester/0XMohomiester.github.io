@@ -43,11 +43,15 @@ We can exploit the [Type Juggling](https://www.php.net/manual/en/language.types.
 
 In PHP, `0e1234` represents a number in scientific notation, where `0` is the coefficient and `e1234` indicates the exponent. However, because the coefficient is 0, the entire value is simply 0, regardless of the exponent, In scientific notation, the format is generally `n x 10^m`, where n is the coefficient and m is the exponent. In PHP, `0e1234` translates to `0 * 10^1234`, which is still 0.
 
-![IMG4](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/89f5c1eb-c699-4b4c-9b36-fdd59ad3c464)
+![IMG4](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/3132b08b-bd51-4666-bc5e-08125625a523)
 
-Now we can create class and try to inject SQL payload like: `0XMohomiester'); select 1 = randomblob(999999999);`.
+Now we can create class and try to inject SQL payload like: `0XMohomiester'); select 1 = randomblob(999999999);--`.
 
 Note: The SQLite `randomblob()` function returns a blob containing pseudo-random bytes. The number of bytes is determined by its argument.
+
+```
+time curl -XGET https://a0351f3d2e04038e.247ctf.com/ -b '247=TzoxMDoiaW5zZXJ0X2xvZyI6MTp7czo4OiJuZXdfZGF0YSI7czo1MjoiMFhNb2hvbWllc3RlcicpOyBzZWxlY3QgMSA9IHJhbmRvbWJsb2IoOTk5OTk5OTk5KTstLSI7fQ==.0e'
+```
 
 ![IMG5](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/997e9a8a-78c3-459f-907b-baa0425e02f1)
 
@@ -61,6 +65,14 @@ as you can see that the response takes about 1.7 seconds with 502 status code, b
 
 ![IMG7](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/3e431425-c0fe-40aa-9d6e-25c16f4a7b44)
 
+yes!, the time is is about 0.5 seconds now lets try to automate this task.
 
+
+
+## Automated Exploitation
+
+We can exploit this bug with sqlmap but we have a some problems here, the first is that the payloads must be serialized in objects and then decode it to clearly exploit the web application and extract flag from database.
+
+we can create a simple local web application act as `proxy server` that manage sqlmap requests and edit on any payload to serialize it and 
 
 
