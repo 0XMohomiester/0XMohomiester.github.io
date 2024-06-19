@@ -122,4 +122,8 @@ echo $response;
 
 ```
 
+we can deploy php server locally using: 
+```
+php -S 0.0.0.0:80
+``` 
 
