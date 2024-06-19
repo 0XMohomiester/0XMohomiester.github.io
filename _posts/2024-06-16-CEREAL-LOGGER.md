@@ -29,7 +29,7 @@ and has `__destruct()` methode that create a new SQLite3 database connection usi
 
 - At this point, we can identify another vulnerability: `insecure deserialization` because the script decode tha first part of the cookie before dot and then unserialize it directly using `unserialize()` function.
 
-## Chaning of bugs 
+## Chaining of bugs 
 
 1) Exoloiting type juggling vulnerability to bypass the if condition.
 
