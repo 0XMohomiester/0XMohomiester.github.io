@@ -72,8 +72,8 @@ yes!, the time is is about 0.5 seconds now lets try to automate this task.
 
 ## Automated Exploitation
 
-We can exploit this bug with sqlmap but we have a some problems here, the first is that the payloads must be serialized in objects and then decode it to clearly exploit the web application and extract flag from database.
+We can exploit this bug with sqlmap but we have a some problems here, the first is that the payloads must be serialized in objects and then encode it to clearly exploit the web application and extract flag from database.
 
-we can create a simple local web application act as `proxy server` that manage sqlmap requests and edit on any payload to serialize it and 
+we can create a simple local web application act as `proxy server` that manage sqlmap requests and edit on any payload to serialize it and then encode it and send the data to the challange server or instance.
 
 
