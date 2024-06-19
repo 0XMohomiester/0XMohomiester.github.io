@@ -76,4 +76,4 @@ We can exploit this bug with sqlmap but we have a some problems here, the first 
 
 we can create a simple local web application act as `proxy server` that manage sqlmap requests and edit on any payload to serialize it and then encode it and send the data to the challange server or instance.
 
-
+![IMG8](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/e755af36-3dac-45ca-975d-3d84a5f8cd2e)
