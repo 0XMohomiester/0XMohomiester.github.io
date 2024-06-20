@@ -97,7 +97,7 @@ we can create a simple local web application act as `proxy server` that manage s
 
 Here is a simple web application using PHP!
 
-```
+```php
 <?php
 
 $payload = $_GET['payload'];
