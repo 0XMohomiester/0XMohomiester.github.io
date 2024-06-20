@@ -52,7 +52,7 @@ Note: The SQLite `randomblob()` function returns a blob containing pseudo-random
 
 ![IMG5](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/3132b08b-bd51-4666-bc5e-08125625a523)
 
-```
+```php
 <?php
 
 class insert_log
