@@ -1,5 +1,5 @@
 ---
-title: "CEREAL LOGGER | 247CTF"
+title: "Chaining SQLmap with a custom PHP proxy server | 247CTF"
 date: 2024-06-16
 categories: [CHALLENGES, CEREAL LOGGER]
 tags: [CHALLENGES, CTF] 
