@@ -44,12 +44,18 @@ The script defines two PHP classes which are `GetMessage` and `WakyWaky`.
 3) If a data parameter is provided via a POST request, it’s unserialized.
 
 ## Spotting the bugs
+According to [php documentation](https://www.php.net/manual/en/language.oop5.magic.php) this magic methods works in php as follows:
+- `__construct()`: Called when an object is created.
+- `__destruct()`: Called when an object is deleted.
+- `__wakeup()`: Called when an object is unserialized.
+- `__toString()`: Called when an object is converted to a string.
 
+Our goal is to read the flag. We cannot directly create a serialized object from the `GetMessage` class because the constructor takes a parameter and checks if its value is equal to "HelloBooooooy". If it is, the script will terminate immediately, and the `__destruct()` method will not be called. On the other hand, if we change the value from "HelloBooooooy" to "Hello", the constructor will save it in the `receive` property, and the `__destruct()` method will be called. However, when it checks the value, the script will terminate again using the `die()` function. Both approaches will fail to read the flag.
 
-
-
-
-
+I Generated this serialized data to test : 
+```php
+O:10:"GetMessage":1:{s:7:"receive";s:13:"HelloBooooooy";}
+```
 
 
 ## Chaining of bugs
