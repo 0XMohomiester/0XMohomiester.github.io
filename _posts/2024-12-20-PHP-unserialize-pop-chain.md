@@ -43,7 +43,7 @@ The script defines two PHP classes which are `GetMessage` and `WakyWaky`.
 
 3) If a data parameter is provided via a POST request, it’s unserialized.
 
-## Spotting the bugs
+## Spotting the code 
 According to [php documentation](https://www.php.net/manual/en/language.oop5.magic.php) this magic methods works in php as follows:
 - `__construct()`: Called when an object is created.
 - `__destruct()`: Called when an object is deleted.
@@ -85,10 +85,14 @@ $obj = new GetMessage("Hello");
 // O:10:"GetMessage":1:{s:7:"receive";s:5:"Hello";}
 echo serialize($obj);
 ```
+![IMG3](https://github.com/user-attachments/assets/44fa326a-c5f9-487a-bfd4-a6a12b764318)
 
+Now, our entry point is the WakyWaky class. If I create a serialized object from this class and send it to the web app, it will unserialize the object and automatically call the `__wakeup()` method, which echoes the msg property of the object.
 
-## Chaining of bugs
-## Manuel Exploiting
-## Automated Exploitation
+What if we could now modify the `msg` property to control the execution flow of the code and call the `__toString()` method?
+
+## Chaining of methods and Exploitation
+We can create an object using `WakyWaky` class and the value of the `msg` property of this object is object of the same class.
+
 
 
