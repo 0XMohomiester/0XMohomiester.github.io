@@ -5,7 +5,7 @@ categories: [CHALLENGES, PHP - Unserialize Pop Chain]
 tags: [CHALLENGES, CTF] 
 ---
 ## Introduction
-[PHP - Unserialize Pop Chain](https://www.root-me.org/en/Challenges/Web-Server/PHP-Unserialize-Pop-Chain)  is a very nice web challenge designed to understand the concept of **magic method chaining** in the deserialization process.
+[PHP - Unserialize Pop Chain](https://www.root-me.org/en/Challenges/Web-Server/PHP-Unserialize-Pop-Chain)  is a very nice web challenge designed to understand the concept of **php pop chaining** in the deserialization process.
 
 As we know that [serialization](https://hazelcast.com/foundations/distributed-computing/serialization/) is the process of converting a data object or a combination of code into a series of bytes, preserving the object's state in an easily transmittable form. Deserialization is the reverse operation of serialization.
 
@@ -120,10 +120,9 @@ echo serialize($OuterObj);
 ```
 ![IMG5](https://github.com/user-attachments/assets/11ebffe1-3aa9-4feb-9a9e-06f0d0d894d8)
 
-That's great, the `__toString()` called to modify the value of getflag and create an object from the `GetMessage` with `msg` of inner object which is "Hello".
-The constructor save the Hello word in `receive` property while executing else statment and then the destruct method called which it triggerd that the `receive` is not equal "HelloBooooooy" and print "[FRIEND]: Hm.. you don't seem to be the friend I was waiting for.." 
+That's great! The `__toString()` method is called to modify the value of getflag and created an object from the `GetMessage` class with the msg property of the inner object, which is "Hello." The constructor saves the word "Hello" in the `receive` property while executing the else statement. Then, the destructor method is called, triggering the condition that the receive value is not equal to "HelloBooooooy," and it prints "[FRIEND]: Hm... you don't seem to be the friend I was waiting for."
 
-Now we need to find a way to bypass these if conditions. As I mentioned before that changing the value of `recieve` will not solve the challenge, The only way to solve is to make the input that passed to the constructor is object from the `GetMessage` class. The two conditions in constructor and destructor methodes will be failed to compare between `object` and `string`, strict comparison check both variables have the same type and the same value.
+Now, we need to find a way to bypass these if conditions. As I mentioned before, changing the value of receive will not solve the challenge. The only way to solve it is to ensure that the input passed to the constructor is an object of the `GetMessage` class. The two conditions in the constructor and destructor methods will fail to compare between an object and a string. Strict comparison checks that both variables have the same type and the same value.
 
 The Final Exploit: 
 
