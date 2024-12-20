@@ -114,6 +114,8 @@ class WakyWaky {
 
 $Innerobj = new WakyWaky("HelloBooooooy");  
 $OuterObj = new WakyWaky($serializedInnerobj);
+
+// O:8:"WakyWaky":1:{s:3:"msg";O:8:"WakyWaky":1:{s:3:"msg";s:4:"HelloBooooooy";}}
 echo serialize($OuterObj); 
 ```
 
