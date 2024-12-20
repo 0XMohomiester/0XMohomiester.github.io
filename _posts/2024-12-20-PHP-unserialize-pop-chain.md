@@ -112,9 +112,7 @@ class WakyWaky {
     }
 }
 
-
-$Innerobj = new WakyWaky("Test");  
-$serializedInnerobj = serialize($Innerobj);  
+$Innerobj = new WakyWaky("HelloBooooooy");  
 $OuterObj = new WakyWaky($serializedInnerobj);
 echo serialize($OuterObj); 
 ```
