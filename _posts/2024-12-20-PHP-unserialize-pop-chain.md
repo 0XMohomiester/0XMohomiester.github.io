@@ -42,9 +42,15 @@ The script defines two PHP classes which are `GetMessage` and `WakyWaky`.
 
 3) If a data parameter is provided via a POST request, it’s unserialized.
 
-
-
 ## Spotting the bugs
+
+
+
+
+
+
+
+
 ## Chaining of bugs
 ## Manuel Exploiting
 ## Automated Exploitation
