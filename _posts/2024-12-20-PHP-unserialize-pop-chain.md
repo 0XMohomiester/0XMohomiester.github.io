@@ -28,9 +28,14 @@ POP stands for `Property Oriented Programming` which means that the attacker can
 
 ## Challenge source code analysis
 
-![IMG2](https://github.com/user-attachments/assets/3ecf72a8-b83c-426f-b532-913acc1e65c2)
+![IMG2](https://github.com/user-attachments/assets/64700220-7dbe-4aa9-a1fc-05d71edc0787)
 
+The script defines two PHP classes which are `GetMessage` and `WakyWaky`.
 
+1) GetMessage class 
+  - Constructor: Initializes the object with the `receive` parameter. If the value is "HelloBooooooy", the  script terminates with a message.
+  - `__toString` Method: Returns the value of the receive property as a string.
+  - Destructor `__destruct`: Validates the receive property. If it’s not "HelloBooooooy", the script terminates. Otherwise, if $getflag is true, it includes a flag.php file and reveals the flag.
 
 
 
