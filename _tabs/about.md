@@ -4,5 +4,4 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Muhammed is a skilled and dedicated cyber security researcher and penetration tester who is always looking for something new to learn or build in the information security field. He likes to understand the inner workings of everything In the information security Field whether theoretical or technical and figure out simple ways to approach problems.
-
+> Mohamed is a passionate and highly skilled cybersecurity engineer, specializing in web and mobile penetration testing. He is dedicated to staying updated with latest security threats. Mohamed enjoys exploring the inner workings of theoretical and technical concepts in cybersecurity, always striving to simplify complex problems and develop creative solutions.
