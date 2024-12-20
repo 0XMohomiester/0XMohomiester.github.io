@@ -95,5 +95,28 @@ What if we could now modify the `msg` property to control the execution flow of 
 ## Chaining of methods and Exploitation
 We can create an object using the `WakyWaky` class, where the value of the `msg` property is an object of the same class. The only way to make the code call the `__toString()` method is to make the msg property of this object another object from the same class. This is because the `WakyWaky` class echoes the `msg`, and `__toString()` is called when the object is treated as a string.
 
+Working of `__toString()`:
+
+![IMG4](https://github.com/user-attachments/assets/cd4488d6-1a4e-49cd-8b22-cd5b37887e72)
+
+Let's try to create the payload: 
+
+```php
+<?php 
+
+class WakyWaky {
+    public $msg;
+
+    public function __construct($msg) {
+        $this->msg = $msg;
+    }
+}
+
+
+$Innerobj = new WakyWaky("Test");  
+$serializedInnerobj = serialize($Innerobj);  
+$OuterObj = new WakyWaky($serializedInnerobj);
+echo serialize($OuterObj); 
+```
 
 
