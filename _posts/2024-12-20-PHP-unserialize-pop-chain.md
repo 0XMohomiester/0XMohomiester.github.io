@@ -36,6 +36,7 @@ The script defines two PHP classes which are `GetMessage` and `WakyWaky`.
   - Constructor `__construct`: Initializes the object with the `receive` parameter. If the value is "HelloBooooooy", the  script terminates with a message.
   - `__toString` Method: Returns the value of the receive property as a string.
   - Destructor `__destruct`: Validates the receive property. If it’s not "HelloBooooooy", the script terminates. Otherwise, if `$getflag` is true, it includes a `flag.php` file and reveals the flag.
+
 2) WakyWaky class:
   - `__wakeup` Method: Executes when the object is unserialized, echoing the msg property.
   - `__toString` Method: Sets `$getflag` to true and creates a new GetMessage object, returning its receive value.
