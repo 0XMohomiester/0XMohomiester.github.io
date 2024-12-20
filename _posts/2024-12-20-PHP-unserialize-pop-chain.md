@@ -157,6 +157,12 @@ $serializedInnerObj = serialize($InnerObj);
 $OuterObj = new WakyWaky($InnerObj);  
 // O:8:"WakyWaky":1:{s:3:"msg";O:8:"WakyWaky":1:{s:3:"msg";O:10:"GetMessage":1:{s:7:"receive";s:13:"HelloBooooooy";}}}
 echo serialize($OuterObj); 
-
 ```
 
+Finally, now we can read the flag:  
+
+![IMG6](https://github.com/user-attachments/assets/b2279bb1-26e1-440f-a08b-2b8365575bf4)
+
+Thanks for reading.
+
+Follow me on [Linkedin](https://www.linkedin.com/in/0xmohomiester/)
