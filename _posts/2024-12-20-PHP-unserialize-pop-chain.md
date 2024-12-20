@@ -50,7 +50,7 @@ According to [php documentation](https://www.php.net/manual/en/language.oop5.mag
 - `__wakeup()`: Called when an object is unserialized.
 - `__toString()`: Called when an object is converted to a string.
 
-Our goal is to read the flag. We cannot directly create a serialized object from the `GetMessage` class because the constructor takes a parameter and checks if its value is equal to "HelloBooooooy". If it is, the script will terminate immediately, and the `__destruct()` method will not be called. On the other hand, if we change the value from "HelloBooooooy" to "Hello", the constructor will save it in the `receive` property, and the `__destruct()` method will be called. However, when it checks the value, the script will terminate again using the `die()` function. Both approaches will fail to read the flag.
+Our goal is to read the flag and to make this set the value of the getflag to true. We cannot directly create a serialized object from the `GetMessage` class because the constructor takes a parameter and checks if its value is equal to "HelloBooooooy". If it is, the script will terminate immediately, and the `__destruct()` method will not be called. On the other hand, if we change the value from "HelloBooooooy" to "Hello", the constructor will save it in the `receive` property, and the `__destruct()` method will be called. However, when it checks the value, the script will terminate again using the `die()` function. Both approaches will fail to read the flag.
 
 I generate this script to create a serialized data for testing: 
 ```php
@@ -88,7 +88,7 @@ echo serialize($obj);
 Trying: `O:10:"GetMessage":1:{s:7:"receive";s:5:"Hello";}`
 ![IMG3](https://github.com/user-attachments/assets/44fa326a-c5f9-487a-bfd4-a6a12b764318)
 
-Now, our entry point is the WakyWaky class. If I create a serialized object from this class and send it to the web app, it will unserialize the object and automatically call the `__wakeup()` method, which echoes the msg property of the object.
+Now, our entry point is the WakyWaky class to set the value of getflag to true. If I create a serialized object from this class and send it to the web app, it will unserialize the object and automatically call the `__wakeup()` method, which echoes the msg property of the object.
 
 What if we could now modify the `msg` property to control the execution flow of the code and call the `__toString()` method?
 
@@ -112,11 +112,11 @@ class WakyWaky {
     }
 }
 
-$Innerobj = new WakyWaky("HelloBooooooy");  
-$OuterObj = new WakyWaky($serializedInnerobj);
+$Innerobj = new WakyWaky("Hello");  
+$OuterObj = new WakyWaky($Innerobj);
 
-// O:8:"WakyWaky":1:{s:3:"msg";O:8:"WakyWaky":1:{s:3:"msg";s:4:"HelloBooooooy";}}
+// O:8:"WakyWaky":1:{s:3:"msg";O:8:"WakyWaky":1:{s:3:"msg";s:5:"Hello";}}
 echo serialize($OuterObj); 
 ```
-
+![IMG5](https://github.com/user-attachments/assets/11ebffe1-3aa9-4feb-9a9e-06f0d0d894d8)
 
