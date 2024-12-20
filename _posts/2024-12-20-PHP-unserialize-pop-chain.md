@@ -120,3 +120,6 @@ echo serialize($OuterObj);
 ```
 ![IMG5](https://github.com/user-attachments/assets/11ebffe1-3aa9-4feb-9a9e-06f0d0d894d8)
 
+That's great, the `__toString()` called to modify the value of getflag and create an object from the `GetMessage` with `msg` of inner object which is "Hello".
+The constructor save the Hello word in `receive` property while executing else statment and then the destruct method called which it triggerd that the `receive` is not equal "HelloBooooooy" and print "[FRIEND]: Hm.. you don't seem to be the friend I was waiting for.." 
+
