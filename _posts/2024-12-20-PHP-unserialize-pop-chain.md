@@ -43,7 +43,7 @@ The script defines two PHP classes which are `GetMessage` and `WakyWaky`.
 
 3) If a data parameter is provided via a POST request, it’s unserialized.
 
-## Spotting the code 
+## Spotting the bug 
 According to [php documentation](https://www.php.net/manual/en/language.oop5.magic.php) this magic methods works in php as follows:
 - `__construct()`: Called when an object is created.
 - `__destruct()`: Called when an object is deleted.
