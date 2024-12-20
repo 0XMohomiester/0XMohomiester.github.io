@@ -16,7 +16,7 @@ timezone:
 
 title: 0xMohomiester # the main title
 
-tagline: Cyber Security Engineer  # it will display as the sub-title
+tagline: Cyber Security Engineer & Penetration tester # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
