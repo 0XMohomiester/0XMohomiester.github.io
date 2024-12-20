@@ -85,6 +85,7 @@ $obj = new GetMessage("Hello");
 // O:10:"GetMessage":1:{s:7:"receive";s:5:"Hello";}
 echo serialize($obj);
 ```
+Trying: `O:10:"GetMessage":1:{s:7:"receive";s:5:"Hello";}`
 ![IMG3](https://github.com/user-attachments/assets/44fa326a-c5f9-487a-bfd4-a6a12b764318)
 
 Now, our entry point is the WakyWaky class. If I create a serialized object from this class and send it to the web app, it will unserialize the object and automatically call the `__wakeup()` method, which echoes the msg property of the object.
@@ -92,7 +93,7 @@ Now, our entry point is the WakyWaky class. If I create a serialized object from
 What if we could now modify the `msg` property to control the execution flow of the code and call the `__toString()` method?
 
 ## Chaining of methods and Exploitation
-We can create an object using `WakyWaky` class and the value of the `msg` property of this object is object of the same class.
+We can create an object using the `WakyWaky` class, where the value of the `msg` property is an object of the same class. The only way to make the code call the `__toString()` method is to make the msg property of this object another object from the same class. This is because the `WakyWaky` class echoes the `msg`, and `__toString()` is called when the object is treated as a string.
 
 
 
