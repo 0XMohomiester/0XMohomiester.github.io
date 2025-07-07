@@ -1,8 +1,8 @@
 ---
 title: "Exploiting PHP Unserialize POP Chains | Rootme"
 date: 2024-12-20
-categories: [CHALLENGES, PHP - Unserialize Pop Chain]
-tags: [CHALLENGES, CTF] 
+categories: [Web Challenges, PHP - Unserialize Pop Chain]
+tags: [web, CTF] 
 ---
 ## Introduction
 [PHP - Unserialize Pop Chain](https://www.root-me.org/en/Challenges/Web-Server/PHP-Unserialize-Pop-Chain)  is a very nice web challenge designed to understand the concept of **php pop chaining** in the deserialization process.
