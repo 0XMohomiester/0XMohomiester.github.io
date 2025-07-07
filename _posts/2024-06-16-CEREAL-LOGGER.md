@@ -1,7 +1,7 @@
 ---
 title: "Chaining SQLmap with a custom php proxy server | 247CTF"
 date: 2024-06-16
-categories: [Web Challenges, CEREAL LOGGER]
+categories: [Web, CEREAL LOGGER]
 tags: [Web, CTF] 
 ---
 
