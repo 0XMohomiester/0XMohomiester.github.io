@@ -1,7 +1,7 @@
 ---
 title: "Exploiting PHP Unserialize POP Chains | Rootme"
 date: 2024-12-20
-categories: [Web, PHP - Unserialize Pop Chain]
+categories: [Web Security, PHP - Unserialize Pop Chain]
 tags: [web, CTF] 
 ---
 ## Introduction
