@@ -73,10 +73,10 @@ theme_mode: # [light | dark]
 # will be added to all image (site avatar & posts' images) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn: "https://firebasestorage.googleapis.com/"
+img_cdn: ""
 
 # the avatar on sidebar, support local or CORS resources
-avatar: "v0/b/endless-elysium-368716.appspot.com/o/1.jpeg?alt=media&token=f0d49a43-84b6-430d-b394-baedffb116d9"
+avatar: /assets/img/1.jpeg
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
