@@ -16,7 +16,7 @@ timezone:
 
 title: 0xMohomiester # the main title
 
-tagline: Cyber Security Researcher & Penetration tester # it will display as the sub-title
+tagline: Offensive Security Engineer & Penetration tester # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
@@ -76,7 +76,7 @@ theme_mode: # [light | dark]
 img_cdn: ""
 
 # the avatar on sidebar, support local or CORS resources
-avatar: /assets/img/1.jpeg
+avatar: /assets/img/1.jpg
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
